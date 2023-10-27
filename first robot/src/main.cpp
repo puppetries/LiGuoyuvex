@@ -80,7 +80,7 @@ int main()
             motor2.spin(fwd,0,rpm);
         }
         //小车投掷粽子
-        if(c1.ButtonR1.pressing())//快速一直投
+        /*if(c1.ButtonR1.pressing())//快速一直投
         {
             motor3.spin(fwd,50,rpm);
             motor4.spin(fwd,50,rpm);
@@ -94,6 +94,21 @@ int main()
         {
             motor3.spin(fwd,0,rpm);
             motor4.spin(fwd,0,rpm);
+        }*/
+        if(c1.ButtonR1.pressing()&&motor3.spinFor(-50,deg,-50,rpm))//停住投
+        {
+            motor3.spinFor(-290,deg,50,rpm);
+            motor4.spinFor(-290,deg,50,rpm);
+        }
+        else if(c1.ButtonR2.pressing())
+        {
+            motor3.spin(fwd,-50,rpm);
+            motor4.spin(fwd,-50,rpm);
+        }
+        else
+        {
+            motor3.stop(hold);
+            motor4.stop(hold);
         }
     }
 return 0;
